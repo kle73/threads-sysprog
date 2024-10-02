@@ -15,6 +15,9 @@ struct thread {
 	void* rsp;
 	void* rbp;
 	jmp_buf ctxt;
+	void (*f)(void*);
+	void *arg;
+	int has_run;
 };
 
 struct thread *thread_create(void (*f)(void *), void *arg);

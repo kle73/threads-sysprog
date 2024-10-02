@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "threads.h"
+#include <unistd.h>
 
 void f3(void *arg)
 {
@@ -27,6 +28,7 @@ void f2(void *arg)
 
 void f1(void *arg)
 {
+    sleep(1);
     int i = 100;
     struct thread *t2 = thread_create(f2, NULL);
     thread_add_runqueue(t2);
